@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel 关联模型由于名称一致性导致的问题
+title: 当你输入一个网址，实际会发生什么?
 category: 技术
 tags: [PHP, Laravel]
 keywords: Laravel,Conflict,Relationship,Model
