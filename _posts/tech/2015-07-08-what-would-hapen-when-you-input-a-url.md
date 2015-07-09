@@ -190,7 +190,9 @@ http://static.ak.fbcdn.net/rsrc.php/zEMOA/hash/c8yzb6ub.js
 http://static.ak.fbcdn.net/rsrc.php/z6R9L/hash/cq2lgbs8.js
 
 …
-![](http://imgtech.gmw.cn/attachement/jpg/site2/20111223/f04da22d7ba7105e1d7507.jpg)
+<center>
+![CSDN图标](http://imgtech.gmw.cn/attachement/jpg/site2/20111223/f04da22d7ba7105e1d7507.jpg "这是CSDN的图标")
+</center>
 
 这些地址都要经历一个和HTML读取类似的过程。所以浏览器会在DNS中查找这些域名，发送请求，重定向等等…
 
