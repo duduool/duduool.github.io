@@ -2,8 +2,8 @@
 layout: post
 title: Memcache、Redis、MongoDB的区别
 category: 技术
-tags: [PHP, Laravel]
-keywords: Laravel,Conflict,Relationship,Model
+tags: [NoSQL]
+keywords: Memcache、Redis、MongoDB
 description: 
 ---
 
@@ -66,8 +66,8 @@ Redis的局限性：
 ：）以下是我个人的补充
 Mc和Redis都是Key-Value类型，不适合在不同数据集之间建立关系，也不适合进行查询搜索。比如redis的keys pattern这种匹配操作，对redis的性能是灾难。
 
-# Mogodb #
-Mogodb是一种文档性的数据库。 
+# Mongodb #
+Mongodb是一种文档性的数据库。 
 
 先解释一下文档的数据库，即可以存放xml、json、bson类型系那个的数据。这些数据具备自述性（self-describing），呈现分层的树状数据结构。redis可以用hash存放简单关系型数据。
 mogodb存放json格式数据。
