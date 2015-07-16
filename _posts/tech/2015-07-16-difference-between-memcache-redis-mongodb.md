@@ -8,8 +8,7 @@ description:
 ---
 
 # Memcached #
-## Memcached的优点： ##
-
+Memcached的优点：
 
 - Memcached可以利用多核优势，单实例吞吐量极高，可以达到几十万QPS（取决于key、value的字节大小以及服务器硬件性能，日常环境中QPS高峰大约在4-6w左右）。
 
@@ -20,7 +19,7 @@ description:
 
 - 坑少。
 
-## Memcached的局限性： ##
+Memcached的局限性：
 
 
 - 只支持简单的key/value数据结构，不像Redis可以支持丰富的数据类型。
@@ -33,7 +32,7 @@ description:
 Memcached内存分配采用Slab Allocation机制管理内存，value大小分布差异较大时会造成内存利用率降低，并引发低利用率时依然出现踢出等问题。需要用户注重value设计。
 
 # Redis #
-## Redis的优点： ##
+Redis的优点： 
 
 
 - 支持多种数据结构，如 string（字符串）、 list(双向链表)、dict(hash表)、set(集合）、zset(排序set)、hyperloglog（基数估算）
@@ -53,7 +52,7 @@ Memcached内存分配采用Slab Allocation机制管理内存，value大小分布
 
 - 支持简单的事务需求，但业界使用场景很少，并不成熟。
 
-## Redis的局限性： ##
+Redis的局限性：
 
 
 - Redis只能使用单线程，性能受限于CPU性能，故单实例CPU最高才可能达到5-6wQPS每秒（取决于数据结构，数据大小以及服务器硬件性能，日常环境中QPS高峰大约在1-2w左右）。
@@ -68,7 +67,8 @@ Memcached内存分配采用Slab Allocation机制管理内存，value大小分布
 Mc和Redis都是Key-Value类型，不适合在不同数据集之间建立关系，也不适合进行查询搜索。比如redis的keys pattern这种匹配操作，对redis的性能是灾难。
 
 # Mogodb #
-## Mogodb是一种文档性的数据库。 ##
+Mogodb是一种文档性的数据库。 
+
 先解释一下文档的数据库，即可以存放xml、json、bson类型系那个的数据。这些数据具备自述性（self-describing），呈现分层的树状数据结构。redis可以用hash存放简单关系型数据。
 mogodb存放json格式数据。
 适合场景：事件记录、内容管理或者博客平台，比如评论系统。
