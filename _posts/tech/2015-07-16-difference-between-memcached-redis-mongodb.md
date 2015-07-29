@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Memcache、Redis、MongoDB的区别
+title: Memcached、Redis、MongoDB的区别
 category: 技术
 tags: [NoSQL]
-keywords: Memcache、Redis、MongoDB
+keywords: Memcached、Redis、MongoDB
 description: 
 ---
 
