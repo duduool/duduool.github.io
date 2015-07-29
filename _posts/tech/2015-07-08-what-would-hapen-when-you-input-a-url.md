@@ -2,8 +2,8 @@
 layout: post
 title: 当你输入一个网址，实际会发生什么?
 category: 技术
-tags: [PHP, Laravel]
-keywords: Laravel,Conflict,Relationship,Model
+tags: [Http]
+keywords: Http
 description: 
 ---
 作为一个软件开发者，你一定会对网络应用如何工作有一个完整的层次化的认知，同样这里也包括这些应用所用到的技术：像浏览器，HTTP，HTML，网络服务器，需求处理等等。
