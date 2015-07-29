@@ -263,7 +263,7 @@ a {
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  cursor: not-allowed; }
+  cursor: auto; }
   #search-input::-webkit-input-placeholder {
     color: #cbcbcb;
     font-style: italic; }
@@ -353,7 +353,7 @@ a {
   color: #2c353d;
   font-size: 18px;
   line-height: 1.5;
-  background: white;
+  background: gray;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
