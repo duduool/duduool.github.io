@@ -46,14 +46,14 @@ Anycast 是一个IP地址映射多个物理主机的路由技术。 美中不足
 因为像Facebook主页这样的动态页面，打开后在浏览器缓存中很快甚至马上就会过期，毫无疑问他们不能从中读取。
 
 所以，浏览器将把一下请求发送到Facebook所在的服务器：
-
-GET http://facebook.com/ HTTP/1.1
- Accept: application/x-ms-application, image/jpeg, application/xaml+xml, [...]
- User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]
- Accept-Encoding: gzip, deflate
- Connection: Keep-Alive
- Host: facebook.com
- Cookie: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]
+    
+    GET http://facebook.com/ HTTP/1.1
+     Accept: application/x-ms-application, image/jpeg, application/xaml+xml, [...]
+     User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]
+     Accept-Encoding: gzip, deflate
+     Connection: Keep-Alive
+     Host: facebook.com
+     Cookie: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]
 GET 这个请求定义了要读取的URL： “http://facebook.com/”。 浏览器自身定义 (User-Agent 头)， 和它希望接受什么类型的相应 (Accept and Accept-Encoding 头). Connection头要求服务器为了后边的请求不要关闭TCP连接。
 
 请求中也包含浏览器存储的该域名的cookies。可能你已经知道，在不同页面请求当中，cookies是与跟踪一个网站状态相匹配的键值。这样cookies会存储登录用户名，服务器分配的密码和一些用户设置等。Cookies会以文本文档形式存储在客户机里，每次请求时发送给服务器。
@@ -70,19 +70,19 @@ GET 这个请求定义了要读取的URL： “http://facebook.com/”。 浏览
 
 图中所示为Facebook服务器发回给浏览器的响应：
 
-HTTP/1.1 301 Moved Permanently
- Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0,
- pre-check=0
- Expires: Sat, 01 Jan 2000 00:00:00 GMT
- Location: http://www.facebook.com/
- P3P: CP="DSP LAW"
- Pragma: no-cache
- Set-Cookie: made_write_conn=deleted; expires=Thu, 12-Feb-2009 05:09:50 GMT;
- path=/; domain=.facebook.com; httponly
- Content-Type: text/html; charset=utf-8
- X-Cnection: close
- Date: Fri, 12 Feb 2010 05:09:51 GMT
- Content-Length: 0
+    HTTP/1.1 301 Moved Permanently
+     Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0,
+     pre-check=0
+     Expires: Sat, 01 Jan 2000 00:00:00 GMT
+     Location: http://www.facebook.com/
+     P3P: CP="DSP LAW"
+     Pragma: no-cache
+     Set-Cookie: made_write_conn=deleted; expires=Thu, 12-Feb-2009 05:09:50 GMT;
+     path=/; domain=.facebook.com; httponly
+     Content-Type: text/html; charset=utf-8
+     X-Cnection: close
+     Date: Fri, 12 Feb 2010 05:09:51 GMT
+     Content-Length: 0
 服务器给浏览器响应一个301永久重定向响应，这样浏览器就会访问“http://www.facebook.com/” 而非“http://facebook.com/”。
 
 为什么服务器一定要重定向而不是直接发会用户想看的网页内容呢？这个问题有好多有意思的答案。
@@ -97,14 +97,14 @@ HTTP/1.1 301 Moved Permanently
 
 现在，浏览器知道了“http://www.facebook.com/”才是要访问的正确地址，所以它会发送另一个获取请求：
 
-GET http://www.facebook.com/ HTTP/1.1
- Accept: application/x-ms-application, image/jpeg, application/xaml+xml, [...]
- Accept-Language: en-US
- User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]
- Accept-Encoding: gzip, deflate
- Connection: Keep-Alive
- Cookie: lsd=XW[...]; c_user=21[...]; x-referer=[...]
- Host: www.facebook.com
+    GET http://www.facebook.com/ HTTP/1.1
+     Accept: application/x-ms-application, image/jpeg, application/xaml+xml, [...]
+     Accept-Language: en-US
+     User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]
+     Accept-Encoding: gzip, deflate
+     Connection: Keep-Alive
+     Cookie: lsd=XW[...]; c_user=21[...]; x-referer=[...]
+     Host: www.facebook.com
 头信息以之前请求中的意义相同。
 
 6. 服务器“处理”请求
@@ -129,30 +129,30 @@ web服务器软件（像IIS和阿帕奇）接收到HTTP请求，然后确定执�
 
 图中为服务器生成并返回的响应：
 
-HTTP/1.1 200 OK
- Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0,
- pre-check=0
- Expires: Sat, 01 Jan 2000 00:00:00 GMT
- P3P: CP="DSP LAW"
- Pragma: no-cache
- Content-Encoding: gzip
- Content-Type: text/html; charset=utf-8
- X-Cnection: close
- Transfer-Encoding: chunked
- Date: Fri, 12 Feb 2010 09:05:55 GMT
+    HTTP/1.1 200 OK
+     Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0,
+     pre-check=0
+     Expires: Sat, 01 Jan 2000 00:00:00 GMT
+     P3P: CP="DSP LAW"
+     Pragma: no-cache
+     Content-Encoding: gzip
+     Content-Type: text/html; charset=utf-8
+     X-Cnection: close
+     Transfer-Encoding: chunked
+     Date: Fri, 12 Feb 2010 09:05:55 GMT
 
  2b3Tn@[...]
 整个响应大小为35kB，其中大部分在整理后以blob类型传输。
 
 内容编码头告诉浏览器整个响应体用gzip算法进行压缩。解压blob块后，你可以看到如下期望的HTML：
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"    
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
- <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
- lang="en" id="facebook">
- <head>
- <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
- <meta http-equiv="Content-language" content="en" />
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"    
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+     lang="en" id="facebook">
+     <head>
+     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+     <meta http-equiv="Content-language" content="en" />
  ...
 关于压缩，头信息说明了是否缓存这个页面，如果缓存的话如何去做，有什么cookies要去设置（前面这个响应里没有这点）和隐私信息等等。
 
